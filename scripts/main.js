@@ -28,7 +28,7 @@ function readQuote(day) {
     db.collection("quotes").doc(day)                                                         //name of the collection and documents should matach excatly with what you have in Firestore
         .onSnapshot(dayDoc => {                                                              //arrow notation
             console.log("current document data: " + dayDoc.data());                          //.data() returns data object
-            document.getElementById("quote-goes-here").innerHTML = dayDoc.data().quote;      //using javascript to display the data on the right place
+            document.getElementById("quote-goes-here").innerHTML = dayDoc.data().quotes;      //using javascript to display the data on the right place
 
             //Here are other ways to access key-value data fields
             //$('#quote-goes-here').text(dayDoc.data().quote);         //using jquery object dot notation
@@ -43,19 +43,7 @@ readQuote("tuesday");        //calling the function
 //-----------------------------------------------
 // Create a "max" number of hike document objects
 //-----------------------------------------------
-function writeHikeLoop(max) {
-    //define a variable for the collection you want to create in Firestore to populate data
-    var hikesRef = db.collection("hikes");
-    for (i = 1; i <= max; i++) {
-        hikesRef.add({ //add to database, autogen ID
-            name: "hike" + i,
-            details: "Elmo says this hike is amazing!  You will love going on hike" + i,
-            lat: 49 + i,    //randomly different
-            lng: -122 + i,  //randomly different
-            last_updated: firebase.firestore.FieldValue.serverTimestamp()
-        })
-    }
-}
+
 function writeHikes() {
     //define a variable for the collection you want to create in Firestore to populate data
     var hikesRef = db.collection("hikes");
@@ -100,4 +88,5 @@ function writeHikes() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
     });
 }
+
 getNameFromAuth(); //run the function
