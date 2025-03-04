@@ -1,3 +1,13 @@
+//---------------------------------
+// Your own functions here
+//---------------------------------
+
+
+function sayHello() {
+    //do something
+}
+//sayHello();    //invoke function
+
 //------------------------------------------------
 // Call this function when the "logout" button is clicked
 //-------------------------------------------------
@@ -9,3 +19,4 @@ function logout() {
         // An error happened.
     });
 }
+
