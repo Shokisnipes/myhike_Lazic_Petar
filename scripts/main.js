@@ -30,13 +30,10 @@ getNameFromAuth(); //run the function
 function readQuote(day) {
     db.collection("quotes").doc(day)                                                         //name of the collection and documents should matach excatly with what you have in Firestore
         .onSnapshot(dayDoc => {                                                              //arrow notation
-<<<<<<< HEAD
             console.log("current document data: " + dayDoc.data().quote);                          //.data() returns data object
             document.getElementById("quote-goes-here").innerHTML = dayDoc.data().quote;      //using javascript to display the data on the right place
-=======
             console.log("current document data: " + dayDoc.data());                          //.data() returns data object
             document.getElementById("quote-goes-here").innerHTML = dayDoc.data().quotes;      //using javascript to display the data on the right place
->>>>>>> 9a442f6dc49bcd11c7c9f1a705ccdd857b1e7682
 
             //Here are other ways to access key-value data fields
             //$('#quote-goes-here').text(dayDoc.data().quote);         //using jquery object dot notation
@@ -48,12 +45,9 @@ function readQuote(day) {
         });
 }
 readQuote("tuesday");        //calling the function
-<<<<<<< HEAD
-=======
 //-----------------------------------------------
 // Create a "max" number of hike document objects
 //-----------------------------------------------
->>>>>>> 9a442f6dc49bcd11c7c9f1a705ccdd857b1e7682
 
 function writeHikes() {
     //define a variable for the collection you want to create in Firestore to populate data
@@ -100,7 +94,6 @@ function writeHikes() {
     });
 }
 
-<<<<<<< HEAD
 //------------------------------------------------------------------------------
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
@@ -139,6 +132,4 @@ function displayCardsDynamically(collection) {
 }
 
 displayCardsDynamically("hikes");  //input param is the name of the collection
-=======
 getNameFromAuth(); //run the function
->>>>>>> 9a442f6dc49bcd11c7c9f1a705ccdd857b1e7682
